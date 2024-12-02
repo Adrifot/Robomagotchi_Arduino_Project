@@ -1,56 +1,91 @@
-# Project Idea - Interactive Mini-Robot Companion/Pet
-## A Tamagotchi/Furby inspired Arduino Project
+# **Interactive Mini-Robot Companion/Pet**
+## A Tamagotchi/Furby-inspired Arduino Project  
+
 This project is a mini-robot "companion" designed to simulate the care and interaction experience of a classic virtual pet. Users can interact with the robot by satisfying its needs, playing minigames, and enjoying its quirky behaviors.
 
-<!-- ##Table of Contents -->
+---
 
-## Intro
-### Initial Idea and Inspiration
-The inspiration for this project came from the popularity of electronic toys like the Tamagotchi (especially in the late '90s) and Furby (popular in the early 2000s).
+## **Introduction**
 
-### Usefulness
-Designing this little robot is useful for developing practical skills in both hardware and software engineering. Additionally, it can serve as an educational (or just fun) toy for children.
+### **Initial Idea and Inspiration**  
+The inspiration for this project came from the popularity of electronic toys like the Tamagotchi (especially in the late '90s) and Furby (popular in the early 2000s).  
 
-## Overview
-### Features
-- Basic Needs System:
-    - Tracks hunger, happiness, and energy levels
-    - Needs decrease over time and require user interaction
-- Minigames:
-    - To satisfy the robot's happiness needs, the user needs to play minigames with it: a reaction-based minigame or a simple "guess the number" game.
-- Expressive outputs:
-    - The robot will display its mood using a small OLED screen and an RGB LED.
-    - It will also remind the user of its needs or react to certain interactions using a buzzer.
-- Interactive controls:
-    - Buttons to feed, play, and interact with the robot.
-    - Additional sensors: a gyroscope and a proximity sensor for better interaction.
+### **Usefulness**  
+Designing this robot develops practical skills in both hardware (wiring, circuit design, sensor integration) and software engineering (C programming, modular coding, logic implementation). The project is also a fun, creative challenge and can serve as an educational toy for children.
 
-### Block Diagram
-[ADD BLOCK DIAGRAM]
+---
 
-## Hardware Design
-### Bill of Materials (BoM)
-| Component    | Quantity | Description |
-| ---------    | :------: | ----------- |
-| Arduino Uno  |    2     | 2 Microcontrollers to act as Master and Slave |
-| Push Buttons |   3-5    | Buttons for interacting |
-| OLED Display |    1     | For showing expressions and information |
-| RGB LED      |    1     | To indicate mood with color changes |
-| Piezo Buzzer |    1     | For sound effects and alerts |
-| Resistors (various)| ? | TBD
-| Breadboard and wires | 1 set | For assembling the circuit |
-| Battery pack (5V?) | 1 | To power the system |
-| Servo Motor | 1-2 | For movable parts (like hands or ears) |
-| Gyroscope | 1 | For position angle detection |
-| Proximity Sensor | 1 | TBD
+## **Overview**
 
-## Software Design
-- IDE: PlatformIO (Visual Studio Code extension)
-- Used libraries: TBD
-- TBD
+### **Features**
+- [x] **Basic Needs System**:
+  - Tracks hunger, happiness, and energy levels.
+  - Needs decrease over time and require user interaction.  
+- [x] **Minigames**:
+  - Reaction-based minigame.
+  - Simple "guess the number" game.  
+- [x] **Expressive Outputs**:
+  - OLED screen displays emotions and statuses.
+  - RGB LED changes color to reflect mood.
+  - Buzzer for sound effects and alerts.  
+- [x] **Interactive Controls**:
+  - Buttons for feeding, playing, and interacting.
+  - Gyroscope for position detection.
+  - Proximity sensor for enhanced interaction.
 
-## Setup
-TBD
+### **Block Diagram**  
+(*TBD*)  
+> *"The block diagram will illustrate the connections between the Arduino boards (master and slave), input modules (buttons, sensors), and output modules (OLED, RGB LED, buzzer, and servos)."*
+
+---
+
+## **Hardware Design**
+
+### **Bill of Materials (BoM)**  
+| Component           | Quantity | Description                               |
+|---------------------|:--------:|-------------------------------------------|
+| Arduino Uno         |    2     | 2 Microcontrollers (Master and Slave)     |
+| Push Buttons        |   3-5    | For user interactions                     |
+| OLED Display        |    1     | Displays emotions and information         |
+| RGB LED             |    1     | Indicates mood through colors             |
+| Piezo Buzzer        |    1     | Produces sound effects                    |
+| Resistors (various) |    TBD   | For LEDs and button pull-downs            |
+| Breadboard & Wires  |    1 set | For circuit assembly                      |
+| Battery Pack (5V)   |    1     | Powers the robot                          |
+| Servo Motor         |   1-2    | For movable parts (e.g., hands, ears)     |
+| Gyroscope           |    1     | For position/angle detection              |
+| Proximity Sensor    |    1     | TBD                                       |
+
+---
+
+## **Software Design**  
+- **IDE**: PlatformIO (Visual Studio Code extension)  
+- **Libraries**:  
+  (*TBD*)  
+- **Planned Functionality**:  
+  - Manage user input from buttons and sensors.
+  - Control OLED and RGB outputs for feedback.
+  - Execute game logic and manage the needs system.  
+  - Modular design for scalability and debugging.
+
+---
+
+## **Setup**  
+(*TBD: Detailed wiring instructions, firmware upload process, and assembly notes to be added.*)
+
+---
 
 > [!CAUTION]
-> This README file is still a work in progress! It will be updated together with the project's progress.
+> This README is a work in progress. Updates will be made as the project develops.
+
+---
+
+## **References and Resources**  
+### **Software Resources**  
+- PlatformIO: [https://platformio.org](https://platformio.org)  
+
+### **Hardware Resources**  
+- Arduino Uno Datasheet: [https://www.arduino.cc/en/main/arduinoBoardUno](https://www.arduino.cc/en/main/arduinoBoardUno)  
+
+---
+
