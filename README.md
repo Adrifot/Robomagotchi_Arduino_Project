@@ -3,6 +3,9 @@
 
 This project is a mini-robot "companion" designed to simulate the care and interaction experience of a classic virtual pet. Users can interact with the robot by satisfying its needs, playing minigames, and enjoying its quirky behaviors.
 
+> [!CAUTION]
+> This README is a work in progress. Updates will be made as the project develops.
+
 ## **Introduction**
 
 ### **Initial Idea and Inspiration**  
@@ -61,9 +64,6 @@ Designing this robot develops practical skills in both hardware (wiring, circuit
 
 ## **Setup**  
 (*TBD*)
-
-> [!CAUTION]
-> This README is a work in progress. Updates will be made as the project develops.
 
 ## **References and Resources**  
 ### **Software Resources**  
