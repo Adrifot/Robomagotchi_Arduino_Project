@@ -3,8 +3,6 @@
 
 This project is a mini-robot "companion" designed to simulate the care and interaction experience of a classic virtual pet. Users can interact with the robot by satisfying its needs, playing minigames, and enjoying its quirky behaviors.
 
----
-
 ## **Introduction**
 
 ### **Initial Idea and Inspiration**  
@@ -12,8 +10,6 @@ The inspiration for this project came from the popularity of electronic toys lik
 
 ### **Usefulness**  
 Designing this robot develops practical skills in both hardware (wiring, circuit design, sensor integration) and software engineering (C programming, modular coding, logic implementation). The project is also a fun, creative challenge and can serve as an educational toy for children.
-
----
 
 ## **Overview**
 
@@ -35,9 +31,6 @@ Designing this robot develops practical skills in both hardware (wiring, circuit
 
 ### **Block Diagram**  
 (*TBD*)  
-> *"The block diagram will illustrate the connections between the Arduino boards (master and slave), input modules (buttons, sensors), and output modules (OLED, RGB LED, buzzer, and servos)."*
-
----
 
 ## **Hardware Design**
 
@@ -56,8 +49,6 @@ Designing this robot develops practical skills in both hardware (wiring, circuit
 | Gyroscope           |    1     | For position/angle detection              |
 | Proximity Sensor    |    1     | TBD                                       |
 
----
-
 ## **Software Design**  
 - **IDE**: PlatformIO (Visual Studio Code extension)  
 - **Libraries**:  
@@ -68,17 +59,11 @@ Designing this robot develops practical skills in both hardware (wiring, circuit
   - Execute game logic and manage the needs system.  
   - Modular design for scalability and debugging.
 
----
-
 ## **Setup**  
-(*TBD: Detailed wiring instructions, firmware upload process, and assembly notes to be added.*)
-
----
+(*TBD*)
 
 > [!CAUTION]
 > This README is a work in progress. Updates will be made as the project develops.
-
----
 
 ## **References and Resources**  
 ### **Software Resources**  
@@ -87,5 +72,4 @@ Designing this robot develops practical skills in both hardware (wiring, circuit
 ### **Hardware Resources**  
 - Arduino Uno Datasheet: [https://www.arduino.cc/en/main/arduinoBoardUno](https://www.arduino.cc/en/main/arduinoBoardUno)  
 
----
 
