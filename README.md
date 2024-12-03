@@ -17,17 +17,17 @@ Designing this robot develops practical skills in both hardware (wiring, circuit
 ## **Overview**
 
 ### **Features**
-- [x] **Basic Needs System**:
+-  **Basic Needs System**:
   - Tracks hunger, happiness, and energy levels.
   - Needs decrease over time and require user interaction.  
-- [x] **Minigames**:
+-  **Minigames**:
   - Reaction-based minigame.
   - Simple "guess the number" game.  
-- [x] **Expressive Outputs**:
+-  **Expressive Outputs**:
   - OLED screen displays emotions and statuses.
   - RGB LED changes color to reflect mood.
   - Buzzer for sound effects and alerts.  
-- [x] **Interactive Controls**:
+-  **Interactive Controls**:
   - Buttons for feeding, playing, and interacting.
   - Gyroscope for position detection.
   - Proximity sensor for enhanced interaction.
