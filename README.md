@@ -69,12 +69,11 @@ Designing this robot develops practical skills in both hardware (wiring, circuit
 ### **Software Resources**  
 - PlatformIO: [https://platformio.org](https://platformio.org)
 
+### **Hardware Resources**  
+- Arduino Uno Datasheet: [https://www.arduino.cc/en/main/arduinoBoardUno](https://www.arduino.cc/en/main/arduinoBoardUno)
+
 ## License
 This project is licensed under the [MIT License](LICENSE).  
 Feel free to use, modify, and distribute this project as long as you include proper attribution.
-
-
-### **Hardware Resources**  
-- Arduino Uno Datasheet: [https://www.arduino.cc/en/main/arduinoBoardUno](https://www.arduino.cc/en/main/arduinoBoardUno)  
 
 
