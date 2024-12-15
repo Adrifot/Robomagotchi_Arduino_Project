@@ -1,5 +1,5 @@
-# **Interactive Mini-Robot Companion/Pet**
-## A Tamagotchi/Furby-inspired Arduino Project  
+# **Interactive Mini-Robot Companion / Pet**
+## A Tamagotchi / Furby-inspired Arduino Project  
 
 This project is a mini-robot "companion" designed to simulate the care and interaction experience of a classic virtual pet. Users can interact with the robot by satisfying its needs, playing minigames, and enjoying its quirky behaviors.
 
@@ -33,7 +33,7 @@ Designing this robot develops practical skills in both hardware (wiring, circuit
   - Proximity sensor for enhanced interaction.
 
 ### **Block Diagram**  
-(*TBD*)  
+![block diagram](./media/schematics/block_diagram.jpg)
 
 ## **Hardware Design**
 
@@ -49,7 +49,7 @@ Designing this robot develops practical skills in both hardware (wiring, circuit
 | Breadboard & Wires  |    1 set | For circuit assembly                      |
 | Battery Pack (5V)   |    1     | Powers the robot                          |
 | Servo Motor         |   1-2    | For movable parts (e.g., hands, ears)     |
-| Gyroscope           |    1     | For position/angle detection              |
+| Termometer          |    1     | For temperature measurement               |
 | Proximity Sensor    |    1     | TBD                                       |
 
 ## **Software Design**  
