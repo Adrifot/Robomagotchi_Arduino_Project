@@ -7,7 +7,7 @@
 	(title_block
 		(title "Robomagotchi Electronic Circuit")
 		(date "2024-12-17")
-		(rev "1.2")
+		(rev "1.3")
 		(company "Author: Adrian-Mihael Fota")
 		(comment 1 "University of Bucharest")
 		(comment 2 "Faculty of Mathematics and Computer Science")
@@ -4489,7 +4489,7 @@
 				)
 			)
 		)
-		(property "Value" "220 Ω"
+		(property "Value" "1 k"
 			(at 180.34 54.864 90)
 			(effects
 				(font
@@ -4763,7 +4763,7 @@
 				)
 			)
 		)
-		(property "Value" "2 k"
+		(property "Value" "1 k"
 			(at 205.74 54.864 90)
 			(effects
 				(font
@@ -5694,7 +5694,7 @@
 				)
 			)
 		)
-		(property "Value" "5.1 k"
+		(property "Value" "2 k"
 			(at 218.44 54.864 90)
 			(effects
 				(font
