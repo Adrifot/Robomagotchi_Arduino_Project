@@ -6,8 +6,6 @@ This project is a mini-robot companion designed to simulate the experience of ca
 > [!CAUTION]
 > This README is a work in progress. Updates will be made as the project develops.
 
----
-
 ## **Table of Contents**
 1. [Introduction](#introduction)  
 2. [Overview](#overview)  
@@ -17,7 +15,7 @@ This project is a mini-robot companion designed to simulate the experience of ca
 6. [References and Resources](#references-and-resources)  
 7. [License Information](#license)  
 
----
+
 
 ## **Introduction**
 
@@ -29,7 +27,7 @@ The inspiration for this project came from the nostalgic electronic toys like Ta
 - **Entertainment**: It provides users with a fun, interactive experience of caring for a virtual pet.  
 - **Educational Value**: Useful for teaching kids or beginners about electronics, programming, and robotics concepts.  
 
----
+
 
 ## **Overview**
 
@@ -50,14 +48,12 @@ The inspiration for this project came from the nostalgic electronic toys like Ta
   - IR receiver enables control via a remote.  
   - Temperature and humidity sensor ensures the robot "lives" in a comfortable environment.  
 - **Dynamic Input Sensors**:  
-  - Light detection using a phototransistor for additional interactivity.  
-
----
+  - Light detection using a phototransistor for additional interactivity. 
 
 ### **Block Diagram**  
 ![Block Diagram](./schematics/images/block_diagram.jpeg)  
 
----
+
 
 ## **Hardware Design**
 
@@ -79,6 +75,7 @@ The inspiration for this project came from the nostalgic electronic toys like Ta
 | AA Battery Holder (4 slots)    |    1     | Holds 4 AA batteries for power.                 |
 | AA Batteries  (1.2V each)      |    4     | Provide 4.8V total power for the servo.         |
 | 9V Battery                     |    1     | Provides power for the Arduino Uno.             |
+| 9V Battery connector           |    1     | Permits battery connection using pins |
 | Phototransistor                |    1     | Light-sensitive transistor for light detection. |
 | Wires and Breadboard           |    1 set | For circuit assembly and prototyping.           |
 
@@ -87,7 +84,7 @@ The inspiration for this project came from the nostalgic electronic toys like Ta
 
 *Refer to the [/schematics/files](./schematics/files) folder for the full KiCAD project file.*  
 
----
+
 
 ## **Software Design**  
 
@@ -101,22 +98,61 @@ The inspiration for this project came from the nostalgic electronic toys like Ta
   4. Minigame execution and feedback mechanisms.  
   5. Modular code design for future scalability and debugging.  
 
----
+
 
 ## **Setup Instructions**  
-*(TBD)*  
+### **Hardware Setup**
+1. Connect the microcontroller and the components using the following table:
+| **Component**      | **Pin Name** | **Connected to**  |
+|--------------------|--------------|-------------------|
+|**Servo Motor**     |PWM           |5                  |
+|                    |+             |4.8V               |
+|                    |-             |GND                |
+|**LCD Display**     |GND           |GND                |
+|                    |VCC           |3.3V               |
+|                    |SCL           |Pin 13             |
+|                    |SDA           |Pin 11             |
+|                    |RES           |Pin 8              |
+|                    |DC            |Pin 7              |
+|                    |CS            |Pin 4              |
+|                    |BLK           |Pin 10             |
+|**OLED Display**    |GND           |GND                |
+|                    |VDD           |3.3V               |
+|                    |SCK           |Pin A4             |
+|                    |SDA           |Pin A5             |
+|**IR Receiver**     |SIG           |Pin 9              |
+|                    |GND           |GND                |
+|                    |VCC           |3.3V               |
+|**Proximity Sensor**|VCC           |5V                 |
+|                    |TRIG          |Pin A2             |
+|                    |ECHO          |Pin 12             |
+|                    |GND           |GND                |
+|**Temp Sensor**     |Vs            |3.3V               |
+|                    |Vout          |Pin A3             |
+|                    |GND           |GND                |
+|**Buzzer**          |+             |Pin 6 through Rb   |
+|                    |-             |GND                |
+|**Phototransistor** |+             |3.3V               |
+|                    |-             |Pin A0             |
 
----
+  - Connect the 100μF capacitor between the servo motor's + and - pins.   
+  - Connect the resistor and pushbutton ladder to 3.3 volts on one side and GND on the other side. Connect Pin 2 between R4 and R5. R5 will act as a pull-down resistor.
+
+2. Connect the negative pins of the 4.8V and 9V power sources to the same ground as the Arduino board. 
+3. Connect the + pin of the 9V battery connector to the **VIN** pin on the Arduino board.
+
+### **Software setup**
+*(TBD)*
 
 ## **References and Resources**  
 
 ### **Software Resources**  
-- [PlatformIO](https://platformio.org) – Development environment.   
+- [PlatformIO](https://platformio.org)  
 
 ### **Hardware Resources**  
 - [Arduino Uno Datasheet](https://www.arduino.cc/en/main/arduinoBoardUno)   
 
----
+
 
 ## **License**  
 This project is licensed under the [MIT License](LICENSE).  
