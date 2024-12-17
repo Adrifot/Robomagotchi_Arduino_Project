@@ -21,44 +21,59 @@ Designing this robot develops practical skills in both hardware (wiring, circuit
   - Tracks hunger, happiness, and energy levels.
   - Needs decrease over time and require user interaction.  
 - **Minigames**:
-  - Reaction-based minigame.
-  - Simple "guess the number" game.  
+  - *(TBD)*
 - **Expressive Outputs**:
   - OLED screen displays emotions and statuses.
-  - RGB LED changes color to reflect mood.
+  - LCD Display for minigames and interaction.
   - Buzzer for sound effects and alerts.  
 - **Interactive Controls**:
   - Buttons for feeding, playing, and interacting.
-  - Gyroscope for position detection.
+  - Infrared remote control for more complex minigames.
+  - Ambient temperature and humidity sensor - keep the bot in a comfortable environment.
   - Proximity sensor for enhanced interaction.
 
 ### **Block Diagram**  
-![block diagram](./media/schematics/block_diagram.jpg)
+<!-- ![block diagram](./media/schematics/block_diagram.jpg) -->
+*(TBD)*
 
 ## **Hardware Design**
 
-### **Bill of Materials (BoM)**  
-| Component           | Quantity | Description                               |
-|---------------------|:--------:|-------------------------------------------|
-| Arduino Uno         |    2     | 2 Microcontrollers (Master and Slave)     |
-| Push Buttons        |   3-5    | For user interactions                     |
-| OLED Display        |    1     | Displays emotions and information         |
-| RGB LED             |    1     | Indicates mood through colors             |
-| Piezo Buzzer        |    1     | Produces sound effects                    |
-| Resistors (various) |    TBD   | For LEDs and button pull-downs            |
-| Breadboard & Wires  |    1 set | For circuit assembly                      |
-| Battery Pack (5V)   |    1     | Powers the robot                          |
-| Servo Motor         |   1-2    | For movable parts (e.g., hands, ears)     |
-| Termometer          |    1     | For temperature measurement               |
-| Proximity Sensor    |    1     | TBD                                       |
+### **Bill of Materials**  
+
+| Component                      | Quantity | Description                                     |
+|--------------------------------|:--------:|------------------------------------------------ |
+| Arduino Uno R3                 |    1     | Microcontroller for controlling the system.     |
+| Push Buttons                   |    5     | Buttons for user interaction.                   |
+| Servo Motor                    |    1     | For mechanical reaction.                        |
+| ST7735 SPI LCD Display         |    1     | Color LCD display for visual output.            |
+| GM009605 I2C OLED Display      |    1     | Monochrome OLED display for status/moods.       |
+| VS188388 IR Receiver           |    1     | Infrared sensor for remote input.               |
+| HC-SR04 Proximity Sensor       |    1     | Detects user proximity for interaction.         |
+| DHT11 Temp and Humidity Sensor |    1     | Measures temperature and humidity.              |
+| Buzzer                         |    1     | Generates sound alerts and effects.             |
+| Resistors (various)            |    6     | For limiting current and voltage division.      |
+| Capacitor (100 µF)             |    1     | For noise reduction and voltage stabilization.   |
+| AA Battery Holder (4 slots)    |    1     | Holds 4 AA batteries for power.                 |
+| AA Batteries                   |    4     | Provide 4.8V total power.                      |
+| 9V Battery                     |    1     | Provides power for the Arduino Uno             |
+| Phototransistor                |    1     | Light-sensitive transistor for light detection |
+| Wires and Breadboard           |    1 set | For circuit assembly.                          |
+
+### **Circuit Schematic**
+<figure>
+  <img src="./media/schematics/kicad_schematic.png" alt="circuit schematic image">
+  <figcaption>The circuit schematic for the Robomagotchi project. Refer to the [schematic KiCAD file](./media/schematics/robomagotchi.kicad_sch) for more informations or possible modifications. </figcaption>
+</figure>
 
 ## **Software Design**  
 - **IDE**: PlatformIO (Visual Studio Code extension)  
+
 - **Libraries**:  
   (*TBD*)  
-- **Planned Functionality**:  
+
+- **Functionality**:  
   - Manage user input from buttons and sensors.
-  - Control OLED and RGB outputs for feedback.
+  - Control OLED, LCD, servo and buzzer outputs for feedback.
   - Execute game logic and manage the needs system.  
   - Modular design for scalability and debugging.
 
