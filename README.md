@@ -83,7 +83,7 @@ The inspiration for this project came from the nostalgic electronic toys like Ta
 | Wires and Breadboard           |    1 set | For circuit assembly and prototyping.           |
 
 ### **Circuit Schematic**   
-![Circuit Schematic](./schematics/images/kicad_schematic-cropped.png)  
+![Circuit Schematic](./schematics/images/kicad_schematic%20-%20cropped.png)  
 
 *Refer to the [/schematics/files](./schematics/files) folder for the full KiCAD project file.*  
 
