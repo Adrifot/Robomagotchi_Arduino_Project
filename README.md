@@ -33,8 +33,7 @@ Designing this robot develops practical skills in both hardware (wiring, circuit
   - Proximity sensor for enhanced interaction.
 
 ### **Block Diagram**  
-<!-- ![block diagram](./media/schematics/block_diagram.jpg) -->
-*(TBD)*
+![block diagram](./media/schematics/block_diagram.jpg)
 
 ## **Hardware Design**
 
