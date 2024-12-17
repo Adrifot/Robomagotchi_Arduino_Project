@@ -80,7 +80,7 @@ The inspiration for this project came from the nostalgic electronic toys like Ta
 | Wires and Breadboard           |    1 set | For circuit assembly and prototyping.           |
 
 ### **Circuit Schematic**   
-![Circuit Schematic](./schematics/images/kicad_schematic%20-%20cropped.png)  
+![Circuit Schematic](./schematics/images/kicad_schematic_cropped.png)  
 
 *Refer to the [/schematics/files](./schematics/files) folder for the full KiCAD project file.*  
 
@@ -133,11 +133,10 @@ The inspiration for this project came from the nostalgic electronic toys like Ta
 |                    |GND           |GND                |
 |**Buzzer**          |+             |Pin 6 through Rb   |
 |                    |-             |GND                |
-|**Phototransistor** |+             |3.3V               |
-|                    |-             |Pin A0             |
 
-  - Connect the 100μF capacitor between the servo motor's + and - pins.   
-  - Connect the resistor and pushbutton ladder to 3.3 volts on one side and GND on the other side. Connect Pin 2 between R4 and R5. R5 will act as a pull-down resistor.
+  - Connect the **100μF capacitor** between the servo motor's + and - pins.   
+  - Connect the **resistor and pushbutton ladder** to 3.3 volts on one side and GND on the other side, as per the [schematic](#circuit-schematic). Connect Pin 2 between R4 and R5. R5 will act as a pull-down resistor.
+  - Connect the + pin on the **phototransistor** to 5V and - to GND through a 10kΩ resistor (Rq). Connect the A0 pin between the resistor and power to measure its voltage output.
 
 2. Connect the negative pins of the 4.8V and 9V power sources to the same ground as the Arduino board. 
 3. Connect the + pin of the 9V battery connector to the **VIN** pin on the Arduino board.

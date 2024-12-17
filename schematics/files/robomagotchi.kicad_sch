@@ -6,8 +6,8 @@
 	(paper "A4")
 	(title_block
 		(title "Robomagotchi Electronic Circuit")
-		(date "2024-12-16")
-		(rev "1.1")
+		(date "2024-12-17")
+		(rev "1.2")
 		(company "Author: Adrian-Mihael Fota")
 		(comment 1 "University of Bucharest")
 		(comment 2 "Faculty of Mathematics and Computer Science")
@@ -3171,6 +3171,12 @@
 		(uuid "d2285132-d8c9-481f-a5f3-5742f421f8fa")
 	)
 	(junction
+		(at 163.83 93.98)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "e603cc54-974e-4388-9aa5-4c736fd37aae")
+	)
+	(junction
 		(at 212.09 57.15)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3718,6 +3724,16 @@
 	)
 	(wire
 		(pts
+			(xy 163.83 93.98) (xy 177.8 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "61514a33-faa4-4453-a824-7e7025e659a8")
+	)
+	(wire
+		(pts
 			(xy 142.24 69.85) (xy 142.24 71.12)
 		)
 		(stroke
@@ -3875,6 +3891,16 @@
 			(type default)
 		)
 		(uuid "8845309b-759f-40fd-8091-d30483c72af6")
+	)
+	(wire
+		(pts
+			(xy 163.83 93.98) (xy 163.83 92.71)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8b4ec489-fda7-4ffa-bc2b-efc807479e55")
 	)
 	(wire
 		(pts
@@ -4088,7 +4114,7 @@
 	)
 	(wire
 		(pts
-			(xy 163.83 85.09) (xy 163.83 74.93)
+			(xy 163.83 82.55) (xy 163.83 74.93)
 		)
 		(stroke
 			(width 0)
@@ -4138,7 +4164,7 @@
 	)
 	(wire
 		(pts
-			(xy 163.83 106.68) (xy 163.83 95.25)
+			(xy 163.83 106.68) (xy 163.83 93.98)
 		)
 		(stroke
 			(width 0)
@@ -4265,6 +4291,16 @@
 			(type default)
 		)
 		(uuid "cb6c15c1-8510-438d-bb65-9ef0bb963a23")
+	)
+	(wire
+		(pts
+			(xy 185.42 93.98) (xy 189.23 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ccf8f8a6-8e1f-4cba-9aff-a6ff85bb1fad")
 	)
 	(wire
 		(pts
@@ -6214,7 +6250,7 @@
 	)
 	(symbol
 		(lib_id "Sensor_Optical:SFH309")
-		(at 166.37 90.17 0)
+		(at 166.37 87.63 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
@@ -6223,7 +6259,7 @@
 		(dnp no)
 		(uuid "c618dcf0-fe9a-48fd-9933-84491e925b75")
 		(property "Reference" "Qp"
-			(at 170.942 90.17 0)
+			(at 170.942 87.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6232,7 +6268,7 @@
 			)
 		)
 		(property "Value" "Phototransistor"
-			(at 161.29 90.6906 0)
+			(at 161.29 88.1506 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6242,7 +6278,7 @@
 			)
 		)
 		(property "Footprint" "LED_THT:LED_D3.0mm_Clear"
-			(at 154.178 93.726 0)
+			(at 154.178 91.186 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6251,7 +6287,7 @@
 			)
 		)
 		(property "Datasheet" "http://www.osram-os.com/Graphics/XPic2/00101811_0.pdf/SFH%20309,%20SFH%20309%20FA,%20Lead%20(Pb)%20Free%20Product%20-%20RoHS%20Compliant.pdf"
-			(at 166.37 90.17 0)
+			(at 166.37 87.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6260,7 +6296,7 @@
 			)
 		)
 		(property "Description" "Phototransistor NPN"
-			(at 166.37 90.17 0)
+			(at 166.37 87.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6479,6 +6515,138 @@
 			(project "robomagotchi"
 				(path "/564f43e2-925d-4726-ad2e-2e1f480b3347"
 					(reference "R5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 181.61 93.98 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "f113a3aa-4d25-42a9-ad1f-5e4d9cbb5a52")
+		(property "Reference" "Rq"
+			(at 181.61 93.98 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10 k"
+			(at 181.61 91.694 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 181.61 95.758 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 181.61 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 181.61 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "65ad8c19-abf3-4e15-8c8e-52c562d8ce4d")
+		)
+		(pin "2"
+			(uuid "358539d9-f6b1-45b4-ac8e-6cad2887d104")
+		)
+		(instances
+			(project "robomagotchi"
+				(path "/564f43e2-925d-4726-ad2e-2e1f480b3347"
+					(reference "Rq")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:Earth")
+		(at 189.23 93.98 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "fd381ff1-750e-4c6f-b723-e7364aaeb382")
+		(property "Reference" "#PWR06"
+			(at 195.58 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 194.056 93.98 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 189.23 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 189.23 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"Earth\""
+			(at 189.23 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "1cf7a15c-a7c2-463e-ba6d-aa963f808121")
+		)
+		(instances
+			(project "robomagotchi"
+				(path "/564f43e2-925d-4726-ad2e-2e1f480b3347"
+					(reference "#PWR06")
 					(unit 1)
 				)
 			)
