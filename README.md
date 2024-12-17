@@ -103,6 +103,7 @@ The inspiration for this project came from the nostalgic electronic toys like Ta
 ## **Setup Instructions**  
 ### **Hardware Setup**
 1. Connect the microcontroller and the components using the following table:
+
 | **Component**      | **Pin Name** | **Connected to**  |
 |--------------------|--------------|-------------------|
 |**Servo Motor**     |PWM           |5                  |
