@@ -59,25 +59,25 @@ The inspiration for this project came from the nostalgic electronic toys like Ta
 
 ### **Bill of Materials (BoM)**  
 
-| Component                      | Quantity | Description                                     |
-|--------------------------------|:--------:|------------------------------------------------|
-| Arduino Uno R3                 |    1     | Microcontroller for controlling the system.     |
-| Push Buttons                   |    5     | Buttons for user interaction.                   |
-| Servo Motor                    |    1     | For mechanical reaction.                        |
-| ST7735 SPI LCD Display         |    1     | Color LCD display for visual output.            |
-| GM009605 I2C OLED Display      |    1     | Monochrome OLED display for status/moods.       |
-| VS188388 IR Receiver           |    1     | Infrared sensor for remote input.               |
-| HC-SR04 Proximity Sensor       |    1     | Detects user proximity for interaction.         |
-| DHT11 Temp and Humidity Sensor |    1     | Measures temperature and humidity.              |
-| Buzzer                         |    1     | Generates sound alerts and effects.             |
-| Resistors (various, see schematic)            |    7     | For limiting current and voltage division.      |
-| Capacitor (100 µF)             |    1     | For noise reduction and voltage stabilization.  |
-| AA Battery Holder (4 slots)    |    1     | Holds 4 AA batteries for power.                 |
-| AA Batteries  (1.2V each)      |    4     | Provide 4.8V total power for the servo.         |
-| 9V Battery                     |    1     | Provides power for the Arduino Uno.             |
-| 9V Battery connector           |    1     | Permits battery connection using pins |
-| Phototransistor                |    1     | Light-sensitive transistor for light detection. |
-| Wires and Breadboard           |    1 set | For circuit assembly and prototyping.           |
+| Component                      | Quantity | Description                                     | Datasheet |
+|--------------------------------|:--------:|-------------------------------------------------|:---------:|
+| Arduino Uno R3                 |    1     | Microcontroller for controlling the system.     |[Link](https://docs.arduino.cc/resources/datasheets/A000066-datasheet.pdf)|          
+| Push Buttons                   |    5     | Buttons for user interaction.                   | N/A |
+| SM-S2309S Servo Motor          |    1     | For mechanical reaction.                        | [Link](https://www.rhydolabz.com/documents/22/SM_S2309S.pdf) |
+| ST7735 SPI LCD Display         |    1     | Color LCD display for visual output.            | [Link](https://www.displayfuture.com/Display/datasheet/controller/ST7735.pdf) |
+| GM009605 I2C OLED Display      |    1     | Monochrome OLED display for status/moods.       | [Link](https://www.datasheethub.com/wp-content/uploads/2022/08/SSD1306.pdf) |
+| VS188388 IR Receiver           |    1     | Infrared sensor for remote input.               | [Link](https://eeshop.unl.edu/pdf/VS1838-Infrared-Receiver-datasheet.pdf) |
+| HC-SR04 Proximity Sensor       |    1     | Detects user proximity for interaction.         | [Link](https://docs.google.com/document/d/1Y-yZnNhMYy7rwhAgyL_pfa39RsB-x2qR4vP8saG73rE/edit?pli=1&tab=t.0) |
+| DHT11 Temp and Humidity Sensor |    1     | Measures temperature and humidity.              | [Link](https://www.mouser.com/datasheet/2/758/DHT11-Technical-Data-Sheet-Translated-Version-1143054.pdf) |
+| Buzzer                         |    1     | Generates sound alerts and effects.             | N/A |
+| Resistors (various)            |    7     | For limiting current and voltage division.      | N/A |
+| Capacitor (100 µF)             |    1     | For noise reduction and voltage stabilization.  | N/A |
+| AA Battery Holder (4 slots)    |    1     | Holds 4 AA batteries for power.                 | N/A |
+| AA Batteries  (1.2V each)      |    4     | Provide 4.8V total power for the servo.         | N/A |
+| 9V Battery                     |    1     | Provides power for the Arduino Uno.             | N/A |
+| 9V Battery connector           |    1     | Permits battery connection using pins           | N/A |
+| Phototransistor                |    1     | Light-sensitive transistor for light detection. | N/A |
+| Wires and Breadboard           |    1 set | For circuit assembly and prototyping.           | N/A |
 
 ### **Circuit Schematic**   
 ![Circuit Schematic](./schematics/images/kicad_schematic_cropped.png)  
@@ -150,7 +150,7 @@ The inspiration for this project came from the nostalgic electronic toys like Ta
 - [PlatformIO](https://platformio.org)  
 
 ### **Hardware Resources**  
-- [Arduino Uno Datasheet](https://www.arduino.cc/en/main/arduinoBoardUno)   
+See the [BoM](#bill-of-materials-bom) for datasheets for each component (if applicable).
 
 
 
