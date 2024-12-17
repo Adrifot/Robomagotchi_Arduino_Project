@@ -6,6 +6,14 @@ This project is a mini-robot "companion" designed to simulate the care and inter
 > [!CAUTION]
 > This README is a work in progress. Updates will be made as the project develops.
 
+## **Table of Contents**
+1. [Introduction](#introduction)
+2. [Overview](#overview)
+3. [Hardware Design](#hardware-design)
+4. [Software Design](#software-design)
+5. [Setup Instructions](#setup)
+6. [License Information](#license)
+
 ## **Introduction**
 
 ### **Initial Idea and Inspiration**  
@@ -15,6 +23,8 @@ The inspiration for this project came from the popularity of electronic toys lik
 Designing this robot develops practical skills in both hardware (wiring, circuit design, sensor integration) and software engineering (C programming, modular coding, logic implementation). The project is also a fun, creative challenge and can serve as an educational toy for children.
 
 ## **Overview**
+### **Block Diagram**  
+![block diagram](./schematics/images/block_diagram.jpeg)
 
 ### **Features**
 - **Basic Needs System**:
@@ -31,9 +41,6 @@ Designing this robot develops practical skills in both hardware (wiring, circuit
   - Infrared remote control for more complex minigames.
   - Ambient temperature and humidity sensor - keep the bot in a comfortable environment.
   - Proximity sensor for enhanced interaction.
-
-### **Block Diagram**  
-![block diagram](./schematics/images/block_diagram.jpeg)
 
 ## **Hardware Design**
 
@@ -60,7 +67,7 @@ Designing this robot develops practical skills in both hardware (wiring, circuit
 
 ### **Circuit Schematic**
 ![circuit schematic cropped](./schematics/images/kicad_schematic%20-%20cropped.png)
-*Please refer to the [schematics/files](./schematics/files) folder for the KiCAD project file. 
+*Please refer to the [/schematics/files](./schematics/files) folder for the KiCAD project file. 
 
 ## **Software Design**  
 - **IDE**: PlatformIO (Visual Studio Code extension)  
