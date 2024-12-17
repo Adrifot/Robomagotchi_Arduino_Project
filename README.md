@@ -33,7 +33,7 @@ Designing this robot develops practical skills in both hardware (wiring, circuit
   - Proximity sensor for enhanced interaction.
 
 ### **Block Diagram**  
-![block diagram](./media/schematics/block_diagram.jpg)
+![block diagram](./schematics/images/block_diagram.jpeg)
 
 ## **Hardware Design**
 
@@ -59,10 +59,8 @@ Designing this robot develops practical skills in both hardware (wiring, circuit
 | Wires and Breadboard           |    1 set | For circuit assembly.                          |
 
 ### **Circuit Schematic**
-<figure>
-  <img src="./media/schematics/kicad_schematic.png" alt="circuit schematic image">
-  <figcaption>The circuit schematic for the Robomagotchi project. Refer to the [schematic KiCAD file](./media/schematics/robomagotchi.kicad_sch) for more informations or possible modifications. </figcaption>
-</figure>
+![circuit schematic cropped](./schematics/images/kicad_schematic%20-%20cropped.png)
+*Please refer to the [schematics/files](./schematics/files) folder for the KiCAD project file. 
 
 ## **Software Design**  
 - **IDE**: PlatformIO (Visual Studio Code extension)  
@@ -81,10 +79,10 @@ Designing this robot develops practical skills in both hardware (wiring, circuit
 
 ## **References and Resources**  
 ### **Software Resources**  
-- PlatformIO: [https://platformio.org](https://platformio.org)
+- PlatformIO: https://platformio.org
 
 ### **Hardware Resources**  
-- Arduino Uno Datasheet: [https://www.arduino.cc/en/main/arduinoBoardUno](https://www.arduino.cc/en/main/arduinoBoardUno)
+- Arduino Uno Datasheet: https://www.arduino.cc/en/main/arduinoBoardUno
 
 ## License
 This project is licensed under the [MIT License](LICENSE).  
