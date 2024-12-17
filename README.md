@@ -78,6 +78,7 @@ The inspiration for this project came from the nostalgic electronic toys like Ta
 | 9V Battery connector           |    1     | Permits battery connection using pins           | N/A |
 | Phototransistor                |    1     | Light-sensitive transistor for light detection. | N/A |
 | Wires and Breadboard           |    1 set | For circuit assembly and prototyping.           | N/A |
+| Infrared Remote                |    1     | Controls the bot through the IR receiver.       | N/A |
 
 ### **Circuit Schematic**   
 ![Circuit Schematic](./schematics/images/kicad_schematic_cropped.png)  
