@@ -6,14 +6,14 @@ This project is a mini-robot companion designed to simulate the experience of ca
 > [!CAUTION]
 > This README is a work in progress. Updates will be made as the project develops.
 
-## **Table of Contents**
-1. [Introduction](#introduction)  
-2. [Overview](#overview)  
-3. [Hardware Design](#hardware-design)  
-4. [Software Design](#software-design)  
-5. [Setup Instructions](#setup-instructions)  
-6. [References and Resources](#references-and-resources)  
-7. [License Information](#license)  
+> **Table of Contents**
+> 1. [Introduction](#introduction)  
+> 2. [Overview](#overview)  
+> 3. [Hardware Design](#hardware-design)  
+> 4. [Software Design](#software-design)  
+> 5. [Setup Instructions](#setup)  
+> 6. [License Information](#license)  
+
 
 
 
