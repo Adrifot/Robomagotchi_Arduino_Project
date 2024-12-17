@@ -70,7 +70,7 @@ The inspiration for this project came from the nostalgic electronic toys like Ta
 | HC-SR04 Proximity Sensor       |    1     | Detects user proximity for interaction.         |
 | DHT11 Temp and Humidity Sensor |    1     | Measures temperature and humidity.              |
 | Buzzer                         |    1     | Generates sound alerts and effects.             |
-| Resistors (various)            |    6     | For limiting current and voltage division.      |
+| Resistors (various, see schematic)            |    7     | For limiting current and voltage division.      |
 | Capacitor (100 µF)             |    1     | For noise reduction and voltage stabilization.  |
 | AA Battery Holder (4 slots)    |    1     | Holds 4 AA batteries for power.                 |
 | AA Batteries  (1.2V each)      |    4     | Provide 4.8V total power for the servo.         |
