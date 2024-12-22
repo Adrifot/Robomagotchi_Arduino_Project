@@ -70,7 +70,7 @@ The inspiration for this project came from the nostalgic electronic toys like Ta
 | HC-SR04 Proximity Sensor       |    1     | Detects user proximity for interaction.         | [Link](https://docs.google.com/document/d/1Y-yZnNhMYy7rwhAgyL_pfa39RsB-x2qR4vP8saG73rE/edit?pli=1&tab=t.0) |
 | DHT11 Temp and Humidity Sensor |    1     | Measures temperature and humidity.              | [Link](https://www.mouser.com/datasheet/2/758/DHT11-Technical-Data-Sheet-Translated-Version-1143054.pdf) |
 | Buzzer                         |    1     | Generates sound alerts and effects.             | N/A |
-| Resistors (various)            |    9     | For limiting current and voltage division.      | N/A |
+| Resistors (various)            |    10    | For limiting current and voltage division.      | N/A |
 | Capacitor (100 µF)             |    1     | For noise reduction and voltage stabilization.  | N/A |
 | 9V Battery                     |    1     | Provides power for the Arduino Uno.             | N/A |
 | 9V Battery connector           |    1     | Permits battery connection using pins           | N/A |
@@ -106,7 +106,7 @@ The inspiration for this project came from the nostalgic electronic toys like Ta
 | **Component**      | **Pin Name** | **Connected to**  |
 |--------------------|--------------|-------------------|
 |**Servo Motor**     |PWM           |Pin 5              |
-|                    |+             |9V through voltage divider (R7-R6)|
+|                    |+             |9V through voltage divider (R8-R7-R6)|
 |                    |-             |GND                |
 |**LCD Display**     |GND           |GND                |
 |                    |VCC           |3.3V               |
@@ -118,8 +118,8 @@ The inspiration for this project came from the nostalgic electronic toys like Ta
 |                    |BLK           |Pin 10             |
 |**OLED Display**    |GND           |GND                |
 |                    |VDD           |3.3V               |
-|                    |SCK           |Pin A4             |
-|                    |SDA           |Pin A5             |
+|                    |SCK           |Pin A5             |
+|                    |SDA           |Pin A4             |
 |**IR Receiver**     |SIG           |Pin 9              |
 |                    |GND           |GND                |
 |                    |VCC           |3.3V               |
@@ -137,8 +137,8 @@ The inspiration for this project came from the nostalgic electronic toys like Ta
   - Connect the **resistor and pushbutton ladder** to 3.3 volts on one side and GND on the other side, as per the [schematic](#circuit-schematic). Connect Pin 2 between R4 and R5. R5 will act as a pull-down resistor.
   - Connect the + pin on the **phototransistor** to 5V and - to GND through a 10kΩ resistor (Rq). Connect the A0 pin between the resistor and power to measure its voltage output.
 
-2. Connect the negative pins of the 9V battery to the same ground as the Arduino board. 
-3. Connect the + pin of the 9V battery connector to the **VIN** pin on the Arduino board.
+2. Connect the negative pin of the 9V battery to the same ground as the Arduino board. 
+3. Connect the + pin of the 9V battery connector to the breadboard and then to the **VIN** pin on the Arduino board (as shown in the schematic).
 
 ### **Software setup**
 *(TBD)*
