@@ -91,11 +91,11 @@ The inspiration for this project came from the nostalgic electronic toys like Ta
 - **Libraries**:  
   - *(TBD)*
 - **Key Functionalities**:  
-  1. Manage user inputs (buttons, sensors, IR remote).  
-  2. Control outputs (OLED, LCD, buzzer, servo).  
-  3. Implement logic for virtual pet needs and decay rates.  
-  4. Minigame execution and feedback mechanisms.  
-  5. Modular code design for future scalability and debugging.  
+  - Manage user inputs (buttons, sensors, IR remote).  
+  - Control outputs (OLED, LCD, buzzer, servo).  
+  - Implement logic for virtual pet needs and decay rates.  
+  - Minigame execution and feedback mechanisms.  
+  - Modular code design for future scalability and debugging.  
 
 
 
