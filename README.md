@@ -64,8 +64,8 @@ The inspiration for this project came from the nostalgic electronic toys like Ta
 | Arduino Uno R3                 |    1     | Microcontroller for controlling the system.     |[Link](https://docs.arduino.cc/resources/datasheets/A000066-datasheet.pdf)|          
 | Push Buttons                   |    5     | Buttons for user interaction.                   | N/A |
 | SM-S2309S Servo Motor          |    1     | For mechanical reaction.                        | [Link](https://www.rhydolabz.com/documents/22/SM_S2309S.pdf) |
-| ST7735 SPI LCD Display         |    1     | Color LCD display for visual output.            | [Link](https://www.displayfuture.com/Display/datasheet/controller/ST7735.pdf) |
-| GM009605 I2C OLED Display      |    1     | Monochrome OLED display for status/moods.       | [Link](https://www.datasheethub.com/wp-content/uploads/2022/08/SSD1306.pdf) |
+| ILI9341 SPI TFT LCD Display    |    1     | Color LCD display for visual output.            | [Link](https://www.hpinfotech.ro/ILI9341.pdf) |
+| SSD1306 I2C OLED Display       |    1     | Monochrome OLED display for status/moods.       | [Link](https://www.datasheethub.com/wp-content/uploads/2022/08/SSD1306.pdf) |
 | VS188388 IR Receiver           |    1     | Infrared sensor for remote input.               | [Link](https://eeshop.unl.edu/pdf/VS1838-Infrared-Receiver-datasheet.pdf) |
 | HC-SR04 Proximity Sensor       |    1     | Detects user proximity for interaction.         | [Link](https://docs.google.com/document/d/1Y-yZnNhMYy7rwhAgyL_pfa39RsB-x2qR4vP8saG73rE/edit?pli=1&tab=t.0) |
 | DHT11 Temp and Humidity Sensor |    1     | Measures temperature and humidity.              | [Link](https://www.mouser.com/datasheet/2/758/DHT11-Technical-Data-Sheet-Translated-Version-1143054.pdf) |
@@ -106,16 +106,16 @@ The inspiration for this project came from the nostalgic electronic toys like Ta
 | **Component**      | **Pin Name** | **Connected to**  |
 |--------------------|--------------|-------------------|
 |**Servo Motor**     |PWM           |Pin 5              |
-|                    |+             |9V through voltage divider (R8-R7-R6)|
+|                    |+             |9V through voltage divider|
 |                    |-             |GND                |
-|**LCD Display**     |GND           |GND                |
-|                    |VCC           |3.3V               |
-|                    |SCL           |Pin 13             |
-|                    |SDA           |Pin 11             |
-|                    |RES           |Pin 8              |
-|                    |DC            |Pin 7              |
+|**LCD Display**     |VCC           |3.3V               |
+|                    |GND           |GND                |
 |                    |CS            |Pin 4              |
-|                    |BLK           |Pin 10             |
+|                    |RESET         |Pin 7              |
+|                    |DC/RS         |Pin 8              |
+|                    |SDI/MOSI      |Pin 11             |
+|                    |SCK           |Pin 13             |
+|                    |LED           |Pin 10             |
 |**OLED Display**    |GND           |GND                |
 |                    |VDD           |3.3V               |
 |                    |SCK           |Pin A5             |
@@ -127,15 +127,15 @@ The inspiration for this project came from the nostalgic electronic toys like Ta
 |                    |TRIG          |Pin A2             |
 |                    |ECHO          |Pin 12             |
 |                    |GND           |GND                |
-|**Temp Sensor**     |Vs            |3.3V               |
-|                    |Vout          |Pin A3             |
+|**Temp Sensor**     |SIG           |Pin A3             |
+|                    |VCC           |3.3V               |
 |                    |GND           |GND                |
 |**Buzzer**          |+             |Pin 6 through Rb   |
 |                    |-             |GND                |
 
   - Connect the **100μF capacitor** between the servo motor's + and - pins.   
-  - Connect the **resistor and pushbutton ladder** to 3.3 volts on one side and GND on the other side, as per the [schematic](#circuit-schematic). Connect Pin 2 between R4 and R5. R5 will act as a pull-down resistor.
-  - Connect the + pin on the **phototransistor** to 5V and - to GND through a 10kΩ resistor (Rq). Connect the A0 pin between the resistor and power to measure its voltage output.
+  - Connect the **resistor and pushbutton ladder** to 5 volts on one side and GND on the other side, as per the [schematic](#circuit-schematic). Connect Pin 2 between R4 and R5. R5 will act as a pull-down resistor.
+  - Connect the + pin on the **phototransistor** to 3.3V and - to GND through a 10kΩ resistor (Rq). Connect the A0 pin between the resistor and power to measure its voltage output.
 
 2. Connect the negative pin of the 9V battery to the same ground as the Arduino board. 
 3. Connect the + pin of the 9V battery connector to the breadboard and then to the **VIN** pin on the Arduino board (as shown in the schematic).
