@@ -7,7 +7,7 @@
 	(title_block
 		(title "Robomagotchi Electronic Circuit")
 		(date "2025-01-07")
-		(rev "3.1")
+		(rev "3.1.1")
 		(company "Author: Adrian-Mihael Fota")
 		(comment 1 "University of Bucharest")
 		(comment 2 "Faculty of Mathematics and Computer Science")
@@ -3002,6 +3002,16 @@
 	)
 	(wire
 		(pts
+			(xy 113.03 109.22) (xy 118.11 109.22)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "004aae67-145e-45ce-a593-4dc533274570")
+	)
+	(wire
+		(pts
 			(xy 135.89 77.47) (xy 175.26 77.47)
 		)
 		(stroke
@@ -3012,17 +3022,17 @@
 	)
 	(wire
 		(pts
-			(xy 97.79 111.76) (xy 118.11 111.76)
+			(xy 111.76 109.22) (xy 111.76 111.76)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "03ed6e51-8179-4d1a-a70a-ac8c0690e851")
+		(uuid "05ef258a-1c4c-4253-bd17-77ca4cf7385d")
 	)
 	(wire
 		(pts
-			(xy 106.68 104.14) (xy 106.68 119.38)
+			(xy 106.68 105.41) (xy 106.68 119.38)
 		)
 		(stroke
 			(width 0)
@@ -3142,6 +3152,16 @@
 	)
 	(wire
 		(pts
+			(xy 104.14 124.46) (xy 118.11 124.46)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "22bc0384-ea27-4037-a912-bd0032f21d75")
+	)
+	(wire
+		(pts
 			(xy 114.3 69.85) (xy 114.3 71.12)
 		)
 		(stroke
@@ -3152,7 +3172,7 @@
 	)
 	(wire
 		(pts
-			(xy 88.9 123.19) (xy 88.9 147.32)
+			(xy 88.9 124.46) (xy 88.9 147.32)
 		)
 		(stroke
 			(width 0)
@@ -3252,6 +3272,16 @@
 	)
 	(wire
 		(pts
+			(xy 111.76 111.76) (xy 118.11 111.76)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3c1027a7-f319-4dda-bbbf-cfd05980b7c8")
+	)
+	(wire
+		(pts
 			(xy 111.76 35.56) (xy 128.27 35.56)
 		)
 		(stroke
@@ -3279,16 +3309,6 @@
 			(type default)
 		)
 		(uuid "41fff2a1-f859-4732-becd-149838979d0f")
-	)
-	(wire
-		(pts
-			(xy 107.95 100.33) (xy 107.95 124.46)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "42cf9c0a-a360-42ad-8faf-fb6dcaed44c2")
 	)
 	(wire
 		(pts
@@ -3329,6 +3349,16 @@
 			(type default)
 		)
 		(uuid "471eea9c-65f7-47a7-8a62-0ff3950827a5")
+	)
+	(wire
+		(pts
+			(xy 97.79 113.03) (xy 113.03 113.03)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "48fe6496-0019-4e91-8014-ae5e5e27af8b")
 	)
 	(wire
 		(pts
@@ -3399,16 +3429,6 @@
 			(type default)
 		)
 		(uuid "558a3711-33da-4f22-b040-46fc22438b51")
-	)
-	(wire
-		(pts
-			(xy 107.95 124.46) (xy 118.11 124.46)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5766f516-0518-4829-8838-bd97748fd99f")
 	)
 	(wire
 		(pts
@@ -3582,7 +3602,7 @@
 	)
 	(wire
 		(pts
-			(xy 97.79 104.14) (xy 106.68 104.14)
+			(xy 97.79 105.41) (xy 106.68 105.41)
 		)
 		(stroke
 			(width 0)
@@ -3659,6 +3679,16 @@
 			(type default)
 		)
 		(uuid "80691685-dba3-41ae-ac75-ae7939f468c0")
+	)
+	(wire
+		(pts
+			(xy 113.03 113.03) (xy 113.03 109.22)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "81e5d991-d2ae-466b-99ab-c0cb5b57c1d9")
 	)
 	(wire
 		(pts
@@ -3742,7 +3772,7 @@
 	)
 	(wire
 		(pts
-			(xy 88.9 96.52) (xy 88.9 74.93)
+			(xy 88.9 97.79) (xy 88.9 74.93)
 		)
 		(stroke
 			(width 0)
@@ -3782,16 +3812,6 @@
 	)
 	(wire
 		(pts
-			(xy 113.03 109.22) (xy 118.11 109.22)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "93bd46fc-4ae6-424d-b04a-a42faa74aab5")
-	)
-	(wire
-		(pts
 			(xy 88.9 69.85) (xy 88.9 44.45)
 		)
 		(stroke
@@ -3822,7 +3842,7 @@
 	)
 	(wire
 		(pts
-			(xy 101.6 74.93) (xy 101.6 119.38)
+			(xy 101.6 74.93) (xy 101.6 120.65)
 		)
 		(stroke
 			(width 0)
@@ -3842,7 +3862,7 @@
 	)
 	(wire
 		(pts
-			(xy 97.79 119.38) (xy 101.6 119.38)
+			(xy 97.79 120.65) (xy 101.6 120.65)
 		)
 		(stroke
 			(width 0)
@@ -4022,13 +4042,23 @@
 	)
 	(wire
 		(pts
-			(xy 105.41 115.57) (xy 105.41 101.6)
+			(xy 105.41 116.84) (xy 105.41 101.6)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "c76d7940-7aa2-4476-9fd3-04c82eaf9a9d")
+	)
+	(wire
+		(pts
+			(xy 97.79 101.6) (xy 104.14 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c775a8fb-4116-4e5d-8aa4-400f64c273fd")
 	)
 	(wire
 		(pts
@@ -4039,6 +4069,16 @@
 			(type default)
 		)
 		(uuid "ccb64aee-b58a-41c1-be6f-d660211beb13")
+	)
+	(wire
+		(pts
+			(xy 97.79 109.22) (xy 111.76 109.22)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ccd44b9f-7b2a-462a-857a-184e6ea66aad")
 	)
 	(wire
 		(pts
@@ -4142,6 +4182,16 @@
 	)
 	(wire
 		(pts
+			(xy 104.14 101.6) (xy 104.14 124.46)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e2842369-423f-4856-bbed-c0b132fe2134")
+	)
+	(wire
+		(pts
 			(xy 144.78 74.93) (xy 154.94 74.93)
 		)
 		(stroke
@@ -4172,27 +4222,7 @@
 	)
 	(wire
 		(pts
-			(xy 113.03 107.95) (xy 113.03 109.22)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e541382f-6dc4-4d5e-93a2-98fb40671813")
-	)
-	(wire
-		(pts
-			(xy 97.79 107.95) (xy 113.03 107.95)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e5fa38cf-b05d-4d04-835b-88ef6771bf5e")
-	)
-	(wire
-		(pts
-			(xy 97.79 115.57) (xy 105.41 115.57)
+			(xy 97.79 116.84) (xy 105.41 116.84)
 		)
 		(stroke
 			(width 0)
@@ -4219,16 +4249,6 @@
 			(type default)
 		)
 		(uuid "f039604e-5990-4d4c-8312-a6230c796b2c")
-	)
-	(wire
-		(pts
-			(xy 97.79 100.33) (xy 107.95 100.33)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f073908c-09b9-4f48-ac9d-02a565f21914")
 	)
 	(wire
 		(pts
@@ -4585,7 +4605,7 @@
 	)
 	(symbol
 		(lib_id "A_LAPTOP_LIB:ST7735_SPI_TFT_Display")
-		(at 88.9 109.22 0)
+		(at 88.9 110.49 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4593,7 +4613,7 @@
 		(dnp no)
 		(uuid "3ec43141-37ae-4a32-bf3c-b1c748cb7d26")
 		(property "Reference" "U1"
-			(at 81.28 109.2199 0)
+			(at 81.28 110.4899 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4603,7 +4623,7 @@
 			)
 		)
 		(property "Value" "SPI TFT Display (ST7735)"
-			(at 98.044 122.428 0)
+			(at 98.044 123.698 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4612,7 +4632,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 88.9 109.22 0)
+			(at 88.9 110.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4621,7 +4641,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 88.9 109.22 0)
+			(at 88.9 110.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4630,7 +4650,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 88.9 109.22 0)
+			(at 88.9 110.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)

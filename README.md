@@ -108,13 +108,13 @@ The inspiration for this project came from the nostalgic electronic toys like Ta
 |**Servo Motor**     |PWM           |Pin 5              |
 |                    |+             |9V through voltage divider|
 |                    |-             |GND                |
-|**LCD Display**     |VCC           |3.3V               |
-|                    |GND           |GND                |
-|                    |CS            |Pin 4              |
-|                    |RES           |Pin 7              |
-|                    |DC            |Pin 8              |
-|                    |SDA           |Pin 11             |
+|**LCD Display**     |GND           |GND                |
+|                    |VCC           |3.3V               |
 |                    |SCL           |Pin 13             |
+|                    |SDA           |Pin 11             |
+|                    |RES           |Pin 8              |
+|                    |DC            |Pin 7              |
+|                    |CS            |Pin 4              |
 |                    |BLK           |3.3V               |
 |**OLED Display**    |GND           |GND                |
 |                    |VDD           |3.3V               |
