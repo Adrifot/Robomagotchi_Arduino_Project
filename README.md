@@ -51,7 +51,7 @@ The inspiration for this project came from the nostalgic electronic toys like Ta
   - Light detection using a phototransistor for additional interactivity. 
 
 ### **Block Diagram**  
-![Block Diagram](./schematics/images/block_diagram.png)  
+![Block Diagram](./schematics/block_diagram.png)  
 
 
 
@@ -81,9 +81,9 @@ The inspiration for this project came from the nostalgic electronic toys like Ta
 
 
 ### **Circuit Schematic**   
-![Circuit Schematic](./schematics/images/kicad_schematic_cropped.png)  
+![Circuit Schematic](./schematics//kicad_schematic_cropped.png)  
 
-*Refer to the [/schematics/files](./schematics/files) folder for the full KiCAD project file.*  
+*Refer to the [/schematics](./schematics) folder for the full KiCAD project file.*  
 
 
 
