@@ -114,8 +114,8 @@ The inspiration for this project came from the nostalgic electronic toys like Ta
   | Temp Sensor | DATA | Pin 7 |
   | | VDD | 3.3V |
   | | GND | GND |
-  | Buzzer | + | Pin 6 through Rb |
-  | | - | GND |
+  | Buzzer | + | Pin 6 |
+  | | - | GND through Rb |
   | IR Receiver | SIG | Pin 8 |
   | | GND | GND |
   | | VCC | 3.3V |
