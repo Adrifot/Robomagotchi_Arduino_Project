@@ -12,7 +12,7 @@ enum State {
     FEEDING
 };
 
-extern volatile State currentState; 
+extern State currentState; 
 void runStateMachine(); 
 
 void f_IDLE();

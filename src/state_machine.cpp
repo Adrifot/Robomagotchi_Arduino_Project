@@ -1,6 +1,9 @@
 #include "state_machine.h"
 #include "display.h"
 #include "mood.h"
+#include <Arduino.h>
+
+unsigned long lastFaceUpdate = 0;
 
 void runStateMachine() {
     switch (currentState) {
@@ -17,7 +20,7 @@ void runStateMachine() {
             f_GAME_LOOP();
             break;
         case SLEEPING:
-            f_SLEEPING():
+            f_SLEEPING();
             break;
         case STATUS_CHECK:
             f_STATUS_CHECK();
@@ -30,5 +33,14 @@ void runStateMachine() {
             break;
         default:
             Serial.println("fatal error in state machine");
+    }
+}
+
+void f_IDLE() {
+    unsigned long currentTime = millis();
+    updateMood();
+    if (currentTime - lastFaceUpdate >= FACE_UPDATE_INTERVAL) {
+        updateFace(currentMood.mood);
+        lastFaceUpdate = currentTime;
     }
 }
