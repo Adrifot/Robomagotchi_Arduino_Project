@@ -1,7 +1,7 @@
 #include "sensors.h"
 #include <Arduino.h>
 
-const int lightThreshold = 30;
+const int lightThreshold = 20;
 
 float duration, distance;
 
