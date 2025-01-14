@@ -1,6 +1,8 @@
 #ifndef MOOD_H
 #define MOOD_H
 
+#include "state_machine.h"
+
 #define SAT_INTV 5000
 #define MAINT_INTV 15000
 #define JOY_INTV 7000
@@ -17,6 +19,6 @@ struct Mood {
 extern Mood currentMood;
 
 void initMood();
-void updateMood();
+void updateMood(State s = IDLE);
 
 #endif

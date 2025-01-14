@@ -9,6 +9,7 @@
 #define OLED_HEIGHT 64
 #define TOP_OFFSET 15
 #define FACE_UPDATE_INTERVAL 10000
+#define SLEEP_ANIMATION_INTV 100
 
 #define WHITE SSD1306_WHITE
 #define BLACK SSD1306_BLACK
@@ -20,7 +21,7 @@ void displayHappy();
 void displayNormal();
 void displaySad();
 void displayBored();
-void displaySleepy(); // not yet implemented
+void displaySleeping(); // not yet implemented
 
 void showHappiness();
 

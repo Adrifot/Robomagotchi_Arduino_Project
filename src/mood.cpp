@@ -16,27 +16,54 @@ void initMood() {
     currentMood.mood = 50; 
 }
 
-void updateMood() {
+void updateMood(State st = IDLE) {
     unsigned long currentTime = millis();
-    if (currentTime - lastMaintenanceUpdate >= MAINT_INTV) {
-        currentMood.maintenance--;
-        lastMaintenanceUpdate = currentTime;
-    }
+    switch(st) {
+        case IDLE:
+            if (currentTime - lastMaintenanceUpdate >= MAINT_INTV) {
+                currentMood.maintenance--;
+                lastMaintenanceUpdate = currentTime;
+            }
 
-    if (currentTime - lastJoyUpdate >= JOY_INTV) {
-        currentMood.joy--;
-        lastJoyUpdate = currentTime;
-    }
+            if (currentTime - lastJoyUpdate >= JOY_INTV) {
+                currentMood.joy--;
+                lastJoyUpdate = currentTime;
+            }
 
-    if (currentTime - lastEnergyUpdate >= ENERGY_INTV) {
-        currentMood.energy--;
-        lastEnergyUpdate = currentTime;
-    }
+            if (currentTime - lastEnergyUpdate >= ENERGY_INTV) {
+                currentMood.energy--;
+                lastEnergyUpdate = currentTime;
+            }
 
-    if (currentTime - lastSatiationUpdate >= SAT_INTV) {
-        currentMood.satiation--;
-        lastSatiationUpdate = currentTime;
+            if (currentTime - lastSatiationUpdate >= SAT_INTV) {
+                currentMood.satiation--;
+                lastSatiationUpdate = currentTime;
+            }
+            break;
+            
+        case SLEEPING:
+            if (currentTime - lastMaintenanceUpdate >= MAINT_INTV*2) {
+                currentMood.maintenance--;
+                lastMaintenanceUpdate = currentTime;
+            }
+
+            if (currentTime - lastJoyUpdate >= JOY_INTV*2) {
+                currentMood.joy--;
+                lastJoyUpdate = currentTime;
+            }
+
+            if (currentTime - lastEnergyUpdate >= ENERGY_INTV) {
+                currentMood.energy++;
+                lastEnergyUpdate = currentTime;
+            }
+
+            if (currentTime - lastSatiationUpdate >= SAT_INTV*2) {
+                currentMood.satiation--;
+                lastSatiationUpdate = currentTime;
+            }
+            break;
     }
+    
 
     currentMood.joy = constrain(currentMood.joy, 0, 100);
     currentMood.satiation = constrain(currentMood.satiation, 0, 100);

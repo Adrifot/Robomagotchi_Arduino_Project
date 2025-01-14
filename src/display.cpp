@@ -74,3 +74,30 @@ void displaySad() {
 
     display.display();
 }
+
+void displaySleeping() {
+    static int zOffset = 0;  
+    display.clearDisplay();
+    
+    display.fillRect(32, 5 + TOP_OFFSET, 20, 5, WHITE); 
+    display.fillRect(78, 5 + TOP_OFFSET, 20, 5, WHITE);
+    display.fillCircle(64, 35 + TOP_OFFSET, 6, WHITE);
+    
+    display.setTextColor(WHITE);
+    display.setCursor(80 + zOffset, 20 + TOP_OFFSET - zOffset/2);
+    display.setTextSize(3);
+    display.print("z");
+    display.setCursor(100 + zOffset, 15 + TOP_OFFSET - zOffset/2);
+    display.setTextSize(2);
+    display.print("z");
+    display.setCursor(112 + zOffset, 8 + TOP_OFFSET - zOffset/2);
+    display.setTextSize(1);
+    display.print("z");
+
+    zOffset++;  
+    if (zOffset > 10) {  
+        zOffset = 0;
+    }
+
+    display.display();
+}

@@ -23,7 +23,6 @@ void f_SLEEPING();
 void f_STATUS_CHECK();
 void f_MAINTENANCE();
 void f_FEEDING();
-
-void checkStateTransition();
+void f_SLEEPING();
 
 #endif

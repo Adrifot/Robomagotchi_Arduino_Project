@@ -1,9 +1,12 @@
 #include "state_machine.h"
 #include "display.h"
 #include "mood.h"
+#include "sensors.h"
 #include <Arduino.h>
 
 unsigned long lastFaceUpdate = 0;
+unsigned long lastAnimationUpdate = 0;
+unsigned long lastProxCheck = 0;
 
 void runStateMachine() {
     switch (currentState) {
@@ -43,4 +46,55 @@ void f_IDLE() {
         updateFace(currentMood.mood);
         lastFaceUpdate = currentTime;
     }
+
+    if (currentMood.energy <= 10 || checkLightLow()) {
+        currentState = SLEEPING;
+        Serial.println("Transition to SLEEPING state.");
+    }
+
+}
+
+void f_SLEEPING() {
+    unsigned long currentTime = millis();
+
+    if (currentTime - lastAnimationUpdate >= SLEEP_ANIMATION_INTV) {
+        displaySleeping();
+        lastAnimationUpdate = currentTime;
+    }
+
+    updateMood(SLEEPING);
+
+    if (currentTime - lastProxCheck >= PROX_CHECK_INTV) {
+        float distance = getDistance();
+        lastProxCheck = currentTime;
+        if(distance <= MIN_PROX && distance != -1) {
+            currentState = IDLE;
+            updateFace(currentMood.mood);
+        } 
+        
+    }
+}
+
+void f_MAIN_MENU() {
+
+}
+
+void f_GAME_MENU() {
+
+}
+
+void f_GAME_LOOP() {
+
+}
+
+void f_FEEDING() {
+
+}
+
+void f_STATUS_CHECK() {
+
+}
+
+void f_MAINTENANCE() {
+
 }
