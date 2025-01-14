@@ -8,3 +8,4 @@ include/
 *_LIB.*
 *.lck
 sym*
+LEGACY/
