@@ -16,22 +16,18 @@ void updateFace(int mood) {
     else if (mood >= 70) displayNormal();
     else if (mood >= 40) displayBored();
     else displaySad(); 
+    showHappiness();
 }
 
-/*
-void updateMood() {
-    mood = joy + satiation + energy + maintenance;
-    mood /= 4;
-    if(energy <= 10) {
-        currentState = SLEEPING;
-    } else {
-        if (mood >= 85) displayHappy();
-        else if (mood >= 70) displayNormal();
-        else if (mood >= 40) displayBored();
-        else displaySad();
-    }
+void showHappiness() {
+    display.fillRect(0, 0, 128, 15, BLACK);
+    display.setCursor(0, 0);
+    display.setTextSize(1);
+    display.setTextColor(WHITE);
+    display.print("Happiness: ");
+    display.print(currentMood.mood);
+    display.display();
 }
-*/
 
 void displayHappy() {
     display.clearDisplay();
