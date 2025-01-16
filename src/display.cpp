@@ -1,5 +1,6 @@
 #include "display.h"
 #include "mood.h"
+#include "sensors.h"
 
 #define DEBOUNCE_TIME 200
 #define MENU_COUNT 4
@@ -9,8 +10,10 @@ Adafruit_SSD1306 display(OLED_WIDTH, OLED_HEIGHT, &Wire, -1);
 uint8_t menu_option = 0;
 extern volatile bool A_triggered;
 extern volatile bool B_triggered;
+extern DHT dht;
 
 unsigned long lastUpdate = 0;
+int potValue = 0;
 
 extern unsigned int lastATime;
 extern unsigned int lastBTime;
@@ -79,8 +82,8 @@ void updateFace(State st, bool urgent) {
     switch(st) {
         case IDLE:
             if (currentTime - lastUpdate >= FACE_UPDATE_INTERVAL || urgent) {
-                currentMood.maintenance = max(0, currentMood.maintenance - 1); 
-                currentMood.energy = max(0, currentMood.energy - 2); 
+                currentMood.maintenance = max(0, currentMood.maintenance - 2); 
+                currentMood.energy = max(0, currentMood.energy - 1); 
                 currentMood.relaxation = max(0, currentMood.relaxation - 3); 
                 currentMood.joy = max(0, currentMood.joy - 2); 
                 lastUpdate = currentTime;
@@ -91,8 +94,8 @@ void updateFace(State st, bool urgent) {
         case SLEEPING:
             if (currentTime - lastUpdate >= FACE_UPDATE_INTERVAL || urgent) {
                 currentMood.maintenance = max(0, currentMood.maintenance - 1); 
-                currentMood.energy = min(99, currentMood.energy + 6); 
-                currentMood.relaxation = max(0, currentMood.relaxation - 2); 
+                currentMood.energy = min(99, currentMood.energy + 8); 
+                currentMood.relaxation = max(0, currentMood.relaxation - 1); 
                 currentMood.joy = max(0, currentMood.joy - 1); 
                 lastUpdate = currentTime;
                 displayEmotion(4);
@@ -131,17 +134,15 @@ void processMenuInput() {
             case 0:
                 currentState = SINGING;
                 // Serial.println("STATUS CHECK");
-                // displayFeed();
+                displayMusic();
                 break;
             case 1:
-                // currentState = GAME_LOOP;
-                // Serial.println("FEEDING");
-                // FEEDING FUNC
+                currentState = GAME_LOOP;
+                displayGame();
                 break;
             case 2:
-                // currentState = MAINTENANCE;
-                // Serial.println("GAME MENU");
-                // show game menu
+                currentState = MAINTENANCE;
+                displayData();
                 break;
             case 3:
                 currentState = IDLE;
@@ -180,18 +181,98 @@ void displayMainMenu() {
     display.display();
 }
 
-void displayFeed() {
+void displayMusic() {
     display.clearDisplay();
-    display.setTextSize(1);
+    display.setTextSize(2);
     display.setTextColor(WHITE);
     display.setCursor(0, 0);
-    display.print("PRESS BTN A");
-    display.setCursor(1, 1 + TOP_OFFSET);
-    display.print("Feed your");
-    display.setCursor(1, 11 + TOP_OFFSET);
-    display.print("Robomagotchi");
-    display.setCursor(1, 21 + TOP_OFFSET);
-    display.print("by pressing BTN A!");
+    display.print("SINGING");
+    display.fillCircle(64, 32 + TOP_OFFSET, 11, WHITE);
+    display.fillRect(70, 5 + TOP_OFFSET, 5, 23, WHITE);
+    display.fillTriangle(74, 5 + TOP_OFFSET, 83, 11 + TOP_OFFSET, 74, 11 + TOP_OFFSET, WHITE);
+    
 
+    display.display();
+}
+
+void displayData() {
+    display.clearDisplay();
+    display.setTextColor(WHITE);
+    display.setTextSize(2);
+    display.setCursor(0, 0);
+    display.print("STATUS");
+    display.setTextSize(1);
+
+    uint8_t temperature = dht.readTemperature();
+    uint8_t humidity = dht.readHumidity();
+
+    if(isnan(temperature) || isnan(humidity)) Serial.println("Failed to read from sensor");
+    else {
+        display.setCursor(1, 5 + TOP_OFFSET);
+        display.print("Temp: ");
+        display.print(temperature);
+        display.print(" C");
+        display.setCursor(1, 15 + TOP_OFFSET);
+        display.print("RH: ");
+        display.print(humidity);
+        display.print("%");
+        display.setCursor(1, 25 + TOP_OFFSET);
+        display.print("Light: ");
+        display.print(getLight());
+        display.setCursor(1, 35 + TOP_OFFSET);
+        display.print("Mood: ");
+        display.print(currentMood.mood);
+        display.setCursor(72, 5 + TOP_OFFSET);
+        display.print("M: ");
+        display.print(currentMood.maintenance);
+        display.setCursor(72, 15 + TOP_OFFSET);
+        display.print("E: ");
+        display.print(currentMood.energy);
+        display.setCursor(72, 25 + TOP_OFFSET);
+        display.print("J: ");
+        display.print(currentMood.joy);
+        display.setCursor(72, 35 + TOP_OFFSET);
+        display.print("R: ");
+        display.print(currentMood.relaxation);
+    }
+
+    display.display();
+}
+
+void displayGame() {
+    display.clearDisplay();
+
+    display.setTextColor(WHITE);
+    display.setTextSize(2);
+    display.setCursor(0, 0);
+    display.print("GAME");
+    potValue = analogRead(POT_PIN);
+    potValue = round(potValue / 10.0) * 10; 
+    display.setCursor(32, 10 + TOP_OFFSET);
+    display.print(potValue);
+
+    display.display();
+}
+
+void displayUp() {
+    display.fillRect(72, 3 + TOP_OFFSET, 22, 38, BLACK);
+    display.fillRect(80, 17 + TOP_OFFSET, 7, 24, WHITE);
+    display.fillTriangle(73, 16 + TOP_OFFSET, 83, 3 + TOP_OFFSET, 93, 16 + TOP_OFFSET, WHITE);
+    display.display();
+}
+
+void displayDown() {
+    display.fillRect(72, 3 + TOP_OFFSET, 22, 38, BLACK);
+    display.fillRect(80, 3 + TOP_OFFSET, 7, 24, WHITE);
+    display.fillTriangle(73, 27 + TOP_OFFSET, 83, 40 + TOP_OFFSET, 93, 27 + TOP_OFFSET, WHITE);
+    display.display();
+}
+
+void displayWin() {
+    display.clearDisplay();
+    display.setTextColor(WHITE);
+    display.setTextSize(2);
+    display.setCursor(1, 32);
+    display.print("YOU WIN!");
     display.display();
 }

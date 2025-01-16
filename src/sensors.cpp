@@ -5,11 +5,15 @@ const uint8_t lightThreshold = 20;
 
 int duration, distance;
 
+DHT dht(DHT_PIN, DHT11);
+
 void initSensors() {
     pinMode(PHOTO_PIN, INPUT);
     pinMode(TRIG_PIN, OUTPUT);
     pinMode(ECHO_PIN, INPUT);
     digitalWrite(TRIG_PIN, LOW);
+    dht.begin();
+    pinMode(POT_PIN, INPUT);
 }
 
 int getLight() {

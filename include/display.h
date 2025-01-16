@@ -31,6 +31,13 @@ void showMoodValue();
 void displayMainMenu();
 void processMenuInput();
 
-void displayFeed();
+void displayMusic();
+
+void displayData();
+
+void displayGame();
+void displayUp();
+void displayDown();
+void displayWin();
 
 #endif
