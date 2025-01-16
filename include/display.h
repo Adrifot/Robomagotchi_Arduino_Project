@@ -1,9 +1,10 @@
-#ifndef DISPLAY_H
-#define DISPLAY_H
+#pragma once
 
 #include <Adafruit_SSD1306.h>
 #include <Adafruit_GFX.h>
+#include <Wire.h>
 #include "mood.h"
+#include "sensors.h"
 
 #define OLED_WIDTH 128
 #define OLED_HEIGHT 64
@@ -21,8 +22,10 @@ void displayHappy();
 void displayNormal();
 void displaySad();
 void displayBored();
-void displaySleeping(); // not yet implemented
+void displaySleeping(); 
 
 void showHappiness();
 
-#endif
+// void displayMainMenu();
+// void processMenuInput();
+

@@ -16,4 +16,7 @@ bool checkLightLow();
 
 int getDistance();
 
+// int getTemperature();
+// int getHumidity();
+
 #endif

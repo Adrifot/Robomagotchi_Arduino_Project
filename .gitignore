@@ -2,10 +2,10 @@
 .vscode/
 test/
 lib/
-include/
 .vscode/
 *auto*
 *_LIB.*
 *.lck
 sym*
 LEGACY/
+temp/

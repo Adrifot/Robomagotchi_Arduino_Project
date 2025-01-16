@@ -1,13 +1,30 @@
 #include "display.h"
-#include <Wire.h>
+
+#define BTN1_MIN 720
+#define BTN1_MAX 740
+#define BTN2_MIN 770
+#define BTN2_MAX 800
+#define BTN3_MIN 1010
+
+#define DEBOUNCE_TIME 200
 
 Adafruit_SSD1306 display(OLED_WIDTH, OLED_HEIGHT, &Wire, -1);
 
+int menu_option = 0;
+const int menu_count = 4;
+extern volatile bool A_triggered;
+extern volatile int A_value;
+
+extern unsigned long lastATime;
+extern unsigned long lastBTime;
+
 void initOLED() {
+    Serial.println("Initializing OLED...");
     if (!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) {
         Serial.println("SSD1306 allocation failed");
-        for(;;);
+        for(;;);  
     }
+    Serial.println("OLED initialized successfully!");
     display.clearDisplay();
 }
 
@@ -101,3 +118,68 @@ void displaySleeping() {
 
     display.display();
 }
+
+// void processMenuInput() {
+//     if (A_triggered) {
+//         A_triggered = false;
+//         if (A_value >= BTN1_MIN && A_value <= BTN1_MAX) {
+//             menu_option = (menu_option - 1 + menu_count) % menu_count;
+//         } else if (A_value >= BTN2_MIN && A_value <= BTN2_MAX) {
+//             menu_option = (menu_option + 1) % menu_count;
+//         } else if (A_value >= BTN3_MIN) {
+//             switch(menu_option) {
+//                 case 0:
+//                     // currentState = STATUS_CHECK;
+//                     Serial.println("STATUS CHECK");
+//                     // show status func
+//                     break;
+//                 case 1:
+//                     // currentState = FEEDING;
+//                     Serial.println("FEEDING");
+//                     // FEEDING FUNC
+//                     break;
+//                 case 2:
+//                     // currentState = GAME_MENU;
+//                     Serial.println("GAME MENU");
+//                     // show game menu
+//                     break;
+//                 case 3:
+//                     // currentState = MAINTENANCE;
+//                     Serial.println("MAINTENANCE");
+//                     // show sensor data
+//                     break;
+//                 default:
+//                     Serial.println("Fatal error in menu input processing!");
+//             }
+//         }
+//         displayMainMenu();
+//     }
+// }
+
+
+// void displayMainMenu() {
+//     const char* menuOptions[] = { "SHOW STATUS", "FEED", "PLAY A GAME", "MAINTENANCE" };
+//     const int menuCount = sizeof(menuOptions) / sizeof(menuOptions[0]);
+
+//     display.clearDisplay();
+//     display.setTextColor(WHITE);
+//     display.setTextSize(2);
+//     display.setCursor(0, 0);
+//     display.println("MAIN MENU");
+
+//     display.setTextSize(1);
+
+//     for (int i = 0; i < menuCount; i++) {
+//         if (menu_option == i) {
+//             display.fillRect(0, 12 * i + 1 + TOP_OFFSET, 128, 9, WHITE); 
+//             display.setTextColor(BLACK);
+//         } else {
+//             display.setTextColor(WHITE);
+//         }
+
+//         display.setCursor(1, 12 * i + 2 + TOP_OFFSET);
+//         display.print(menuOptions[i]);
+//     }
+
+//     display.display();
+// }

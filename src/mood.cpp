@@ -16,7 +16,7 @@ void initMood() {
     currentMood.mood = 50; 
 }
 
-void updateMood(State st = IDLE) {
+void updateMood(State st) {
     unsigned long currentTime = millis();
     switch(st) {
         case IDLE:
@@ -52,7 +52,7 @@ void updateMood(State st = IDLE) {
                 lastJoyUpdate = currentTime;
             }
 
-            if (currentTime - lastEnergyUpdate >= ENERGY_INTV) {
+            if (currentTime - lastEnergyUpdate >= ENERGY_INTV/2) {
                 currentMood.energy++;
                 lastEnergyUpdate = currentTime;
             }
@@ -62,6 +62,8 @@ void updateMood(State st = IDLE) {
                 lastSatiationUpdate = currentTime;
             }
             break;
+        default:
+            Serial.println("Fatal error in Mood Updat function");
     }
     
 

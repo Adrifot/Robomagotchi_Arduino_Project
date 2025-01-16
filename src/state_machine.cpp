@@ -8,6 +8,11 @@ unsigned long lastFaceUpdate = 0;
 unsigned long lastAnimationUpdate = 0;
 unsigned long lastProxCheck = 0;
 
+extern volatile bool B_triggered;
+extern unsigned long lastBTime;
+
+#define DEBOUNCE_TIME 200
+
 void runStateMachine() {
     switch (currentState) {
         case IDLE:
@@ -35,7 +40,7 @@ void runStateMachine() {
             f_FEEDING();
             break;
         default:
-            Serial.println("fatal error in state machine");
+            Serial.println("Fatal error in state machine.");
     }
 }
 
@@ -52,6 +57,12 @@ void f_IDLE() {
         Serial.println("Transition to SLEEPING state.");
     }
 
+    // if (B_triggered) {
+    //     B_triggered = false;
+    //     currentState = MAIN_MENU;
+    //     displayMainMenu();
+    //     Serial.println("Transition to MAIN_MENU state.");    
+    // }
 }
 
 void f_SLEEPING() {
@@ -67,20 +78,25 @@ void f_SLEEPING() {
     if (currentTime - lastProxCheck >= PROX_CHECK_INTV) {
         float distance = getDistance();
         lastProxCheck = currentTime;
-        if(distance <= MIN_PROX && distance != -1) {
+        if((distance <= MIN_PROX && distance != -1) && (!checkLightLow() && currentMood.energy > 10)) {
             currentState = IDLE;
             updateFace(currentMood.mood);
         } 
-        
     }
 }
 
 void f_MAIN_MENU() {
-
+    // processMenuInput();
+    // if (B_triggered) {
+    //     B_triggered = false;
+    //     currentState = IDLE;
+    //     updateFace(currentMood.mood);
+    // }
+    // displayMainMenu();
 }
 
 void f_GAME_MENU() {
-
+    
 }
 
 void f_GAME_LOOP() {
