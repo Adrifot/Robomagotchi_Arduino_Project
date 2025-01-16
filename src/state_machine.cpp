@@ -33,8 +33,8 @@ void runStateMachine() {
         case MAINTENANCE:
             f_MAINTENANCE();
             break;
-        case FEEDING:
-            f_FEEDING();
+        case SINGING:
+            f_SINGING();
             break;
         default:
             Serial.println(F("Fatal error in state machine."));
@@ -42,19 +42,16 @@ void runStateMachine() {
 }
 
 void f_IDLE() {
-    unsigned int currentTime = millis();
-    if (currentTime - lastFaceUpdate >= FACE_UPDATE_INTERVAL) {
-        updateFace(currentMood.mood);
-        lastFaceUpdate = currentTime;
-    }
-
+    updateFace();
+        
     if (checkLightLow()) {
         currentState = SLEEPING;
         displayEmotion(4);
     }
 
-    if (A_triggered) {
+    if (A_triggered || B_triggered) {
         A_triggered = false;
+        B_triggered = false;
         currentState = MAIN_MENU;
         displayMainMenu();   
     }
@@ -63,33 +60,28 @@ void f_IDLE() {
 void f_SLEEPING() {
     unsigned long currentTime = millis();
  
-    updateFace(currentMood.mood, SLEEPING);
+    updateFace(SLEEPING);
 
     if (currentTime - lastProxCheck >= PROX_CHECK_INTV) {
         int distance = getDistance();
         lastProxCheck = currentTime;
         if((distance <= MIN_PROX && distance != -1) && !checkLightLow()) {
             currentState = IDLE;
-            updateFace(currentMood.mood);
+            updateFace(IDLE, true);
         } 
     }
 }
 
 void f_MAIN_MENU() {
     processMenuInput();
-    if (B_triggered) {
-        B_triggered = false;
-        currentState = IDLE;
-        updateFace(currentMood.mood);
-    } 
 }
 
 void f_GAME_LOOP() {
 
 }
 
-void f_FEEDING() {
-
+void f_SINGING() {
+    
 }
 
 void f_MAINTENANCE() {

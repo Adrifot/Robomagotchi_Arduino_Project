@@ -12,11 +12,17 @@
 #define TOP_OFFSET 15
 #define FACE_UPDATE_INTERVAL 5000
 
+#define BTN1_MIN 720
+#define BTN1_MAX 740
+#define BTN2_MIN 770
+#define BTN2_MAX 800
+#define BTN3_MIN 1010
+
 #define WHITE SSD1306_WHITE
 #define BLACK SSD1306_BLACK
 
 void initOLED();
-void updateFace(uint8_t mood, State st = IDLE);
+void updateFace(State st = IDLE, bool urgent = 0);
 
 void displayEmotion(uint8_t emotion);
 
@@ -24,5 +30,7 @@ void showMoodValue();
 
 void displayMainMenu();
 void processMenuInput();
+
+void displayFeed();
 
 #endif

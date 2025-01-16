@@ -1,20 +1,14 @@
 #include "display.h"
 #include "mood.h"
 
-#define BTN1_MIN 720
-#define BTN1_MAX 740
-#define BTN2_MIN 770
-#define BTN2_MAX 800
-#define BTN3_MIN 1010
-
 #define DEBOUNCE_TIME 200
-#define MENU_COUNT 3
+#define MENU_COUNT 4
 
 Adafruit_SSD1306 display(OLED_WIDTH, OLED_HEIGHT, &Wire, -1);
 
 uint8_t menu_option = 0;
 extern volatile bool A_triggered;
-extern volatile int A_value;
+extern volatile bool B_triggered;
 
 unsigned long lastUpdate = 0;
 
@@ -80,25 +74,25 @@ void displayEmotion(uint8_t emotion) {
     display.display();
 }
 
-void updateFace(uint8_t mood, State st) {
+void updateFace(State st, bool urgent) {
     unsigned long currentTime = millis();
     switch(st) {
         case IDLE:
-            if (currentTime - lastUpdate >= FACE_UPDATE_INTERVAL) {
+            if (currentTime - lastUpdate >= FACE_UPDATE_INTERVAL || urgent) {
                 currentMood.maintenance = max(0, currentMood.maintenance - 1); 
                 currentMood.energy = max(0, currentMood.energy - 2); 
-                currentMood.satiation = max(0, currentMood.satiation - 3); 
+                currentMood.relaxation = max(0, currentMood.relaxation - 3); 
                 currentMood.joy = max(0, currentMood.joy - 2); 
                 lastUpdate = currentTime;
-                displayEmotion(mood / 25);
+                displayEmotion(currentMood.mood / 25);
             }
             break;
 
         case SLEEPING:
-            if (currentTime - lastUpdate >= FACE_UPDATE_INTERVAL) {
+            if (currentTime - lastUpdate >= FACE_UPDATE_INTERVAL || urgent) {
                 currentMood.maintenance = max(0, currentMood.maintenance - 1); 
-                currentMood.energy = min(99, currentMood.energy + 4); 
-                currentMood.satiation = max(0, currentMood.satiation - 2); 
+                currentMood.energy = min(99, currentMood.energy + 6); 
+                currentMood.relaxation = max(0, currentMood.relaxation - 2); 
                 currentMood.joy = max(0, currentMood.joy - 1); 
                 lastUpdate = currentTime;
                 displayEmotion(4);
@@ -109,7 +103,7 @@ void updateFace(uint8_t mood, State st) {
             Serial.println(F("Fatal error in Mood Update function"));
     }
     
-    currentMood.mood = (currentMood.joy + currentMood.satiation + currentMood.energy + currentMood.maintenance) / 4;
+    // currentMood.mood = (currentMood.joy + currentMood.relaxation + currentMood.energy + currentMood.maintenance) / 4;
     
     showMoodValue();
 }
@@ -120,50 +114,48 @@ void showMoodValue() {
     display.setTextSize(1);
     display.setTextColor(WHITE);
     display.print("Happiness: ");
+    currentMood.mood = (currentMood.joy + currentMood.relaxation + currentMood.energy + currentMood.maintenance) / 4;
     display.print(currentMood.mood);
     display.display();
 }
 
 void processMenuInput() {
+    displayMainMenu();
     if (A_triggered) {
         A_triggered = false;
-        if (A_value >= BTN1_MIN && A_value <= BTN1_MAX) {
-            menu_option = (menu_option - 1 + MENU_COUNT) % MENU_COUNT;
-        } else if (A_value >= BTN2_MIN && A_value <= BTN2_MAX) {
-            menu_option = (menu_option + 1) % MENU_COUNT;
-        } else if (A_value >= BTN3_MIN) {
-            switch(menu_option) {
-                case 0:
-                    // currentState = STATUS_CHECK;
-                    // Serial.println("STATUS CHECK");
-                    // show status func
-                    break;
-                case 1:
-                    // currentState = FEEDING;
-                    // Serial.println("FEEDING");
-                    // FEEDING FUNC
-                    break;
-                case 2:
-                    // currentState = GAME_MENU;
-                    // Serial.println("GAME MENU");
-                    // show game menu
-                    break;
-                case 3:
-                    // currentState = MAINTENANCE;
-                    // Serial.println("MAINTENANCE");
-                    // show sensor data
-                    break;
-                default:
-                    Serial.println(F("Fatal error in menu input processing!"));
-            }
-        }
-        displayMainMenu();
+        menu_option = (menu_option + 1) % MENU_COUNT;
     }
+    if (B_triggered) {
+        B_triggered = false;
+        switch(menu_option) {
+            case 0:
+                currentState = SINGING;
+                // Serial.println("STATUS CHECK");
+                // displayFeed();
+                break;
+            case 1:
+                // currentState = GAME_LOOP;
+                // Serial.println("FEEDING");
+                // FEEDING FUNC
+                break;
+            case 2:
+                // currentState = MAINTENANCE;
+                // Serial.println("GAME MENU");
+                // show game menu
+                break;
+            case 3:
+                currentState = IDLE;
+                updateFace(IDLE, true);
+                break;
+            default:
+                Serial.println(F("Fatal error in menu input processing!"));
+        }
+    }    
 }
 
 
 void displayMainMenu() {
-    const char* menuOptions[] PROGMEM = { "FEED", "PLAY A GAME", "MAINTENANCE" };
+    const char* menuOptions[] PROGMEM = { "SING", "PLAY A GAME", "MAINTENANCE", "< back" };
     
     display.clearDisplay();
     display.setTextColor(WHITE);
@@ -175,15 +167,31 @@ void displayMainMenu() {
 
     for (int i = 0; i < MENU_COUNT; i++) {
         if (menu_option == i) {
-            display.fillRect(0, 12 * i + 1 + TOP_OFFSET, 128, 9, WHITE); 
+            display.fillRect(0, 10 * i + 3 + TOP_OFFSET, 128, 9, WHITE); 
             display.setTextColor(BLACK);
         } else {
             display.setTextColor(WHITE);
         }
 
-        display.setCursor(1, 12 * i + 2 + TOP_OFFSET);
+        display.setCursor(1, 10 * i + 4 + TOP_OFFSET);
         display.print(menuOptions[i]);
     }
+
+    display.display();
+}
+
+void displayFeed() {
+    display.clearDisplay();
+    display.setTextSize(1);
+    display.setTextColor(WHITE);
+    display.setCursor(0, 0);
+    display.print("PRESS BTN A");
+    display.setCursor(1, 1 + TOP_OFFSET);
+    display.print("Feed your");
+    display.setCursor(1, 11 + TOP_OFFSET);
+    display.print("Robomagotchi");
+    display.setCursor(1, 21 + TOP_OFFSET);
+    display.print("by pressing BTN A!");
 
     display.display();
 }

@@ -6,9 +6,9 @@
 
 struct Mood {
     uint8_t joy;
-    uint8_t satiation;
     uint8_t energy;
     uint8_t maintenance;
+    uint8_t relaxation;
     uint8_t mood;
 };
 

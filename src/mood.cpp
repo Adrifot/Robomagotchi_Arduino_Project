@@ -6,7 +6,7 @@ Mood currentMood;
 
 void initMood() {
     currentMood.joy = 50;
-    currentMood.satiation = 50;
+    currentMood.relaxation = 50;
     currentMood.energy = 50;
     currentMood.maintenance = 50;
     currentMood.mood = 50; 
