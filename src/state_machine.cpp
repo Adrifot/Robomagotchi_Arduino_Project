@@ -4,12 +4,15 @@
 #include "sensors.h"
 #include <Arduino.h>
 
-unsigned long lastFaceUpdate = 0;
-unsigned long lastAnimationUpdate = 0;
-unsigned long lastProxCheck = 0;
+unsigned int lastFaceUpdate = 0;
+unsigned int lastAnimationUpdate = 0;
+unsigned int lastProxCheck = 0;
+
+extern volatile bool A_triggered;
+extern unsigned int lastATime;
 
 extern volatile bool B_triggered;
-extern unsigned long lastBTime;
+extern unsigned int lastBTime;
 
 #define DEBOUNCE_TIME 200
 
@@ -21,17 +24,11 @@ void runStateMachine() {
         case MAIN_MENU:
             f_MAIN_MENU();
             break;
-        case GAME_MENU: 
-            f_GAME_MENU();
-            break;
         case GAME_LOOP:
             f_GAME_LOOP();
             break;
         case SLEEPING:
             f_SLEEPING();
-            break;
-        case STATUS_CHECK:
-            f_STATUS_CHECK();
             break;
         case MAINTENANCE:
             f_MAINTENANCE();
@@ -40,45 +37,38 @@ void runStateMachine() {
             f_FEEDING();
             break;
         default:
-            Serial.println("Fatal error in state machine.");
+            Serial.println(F("Fatal error in state machine."));
     }
 }
 
 void f_IDLE() {
-    unsigned long currentTime = millis();
-    updateMood();
+    unsigned int currentTime = millis();
     if (currentTime - lastFaceUpdate >= FACE_UPDATE_INTERVAL) {
         updateFace(currentMood.mood);
         lastFaceUpdate = currentTime;
     }
 
-    if (currentMood.energy <= 10 || checkLightLow()) {
+    if (checkLightLow()) {
         currentState = SLEEPING;
-        Serial.println("Transition to SLEEPING state.");
+        displayEmotion(4);
     }
 
-    // if (B_triggered) {
-    //     B_triggered = false;
-    //     currentState = MAIN_MENU;
-    //     displayMainMenu();
-    //     Serial.println("Transition to MAIN_MENU state.");    
-    // }
+    if (A_triggered) {
+        A_triggered = false;
+        currentState = MAIN_MENU;
+        displayMainMenu();   
+    }
 }
 
 void f_SLEEPING() {
     unsigned long currentTime = millis();
-
-    if (currentTime - lastAnimationUpdate >= SLEEP_ANIMATION_INTV) {
-        displaySleeping();
-        lastAnimationUpdate = currentTime;
-    }
-
-    updateMood(SLEEPING);
+ 
+    updateFace(currentMood.mood, SLEEPING);
 
     if (currentTime - lastProxCheck >= PROX_CHECK_INTV) {
-        float distance = getDistance();
+        int distance = getDistance();
         lastProxCheck = currentTime;
-        if((distance <= MIN_PROX && distance != -1) && (!checkLightLow() && currentMood.energy > 10)) {
+        if((distance <= MIN_PROX && distance != -1) && !checkLightLow()) {
             currentState = IDLE;
             updateFace(currentMood.mood);
         } 
@@ -86,17 +76,12 @@ void f_SLEEPING() {
 }
 
 void f_MAIN_MENU() {
-    // processMenuInput();
-    // if (B_triggered) {
-    //     B_triggered = false;
-    //     currentState = IDLE;
-    //     updateFace(currentMood.mood);
-    // }
-    // displayMainMenu();
-}
-
-void f_GAME_MENU() {
-    
+    processMenuInput();
+    if (B_triggered) {
+        B_triggered = false;
+        currentState = IDLE;
+        updateFace(currentMood.mood);
+    } 
 }
 
 void f_GAME_LOOP() {
@@ -104,10 +89,6 @@ void f_GAME_LOOP() {
 }
 
 void f_FEEDING() {
-
-}
-
-void f_STATUS_CHECK() {
 
 }
 

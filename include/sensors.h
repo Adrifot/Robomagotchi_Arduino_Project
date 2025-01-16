@@ -6,7 +6,7 @@
 #define TRIG_PIN 5
 #define ECHO_PIN 4
 
-#define PROX_CHECK_INTV 1500
+#define PROX_CHECK_INTV 2500
 #define MIN_PROX 10
 
 void initSensors();

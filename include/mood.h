@@ -2,23 +2,18 @@
 #define MOOD_H
 
 #include "state_machine.h"
-
-#define SAT_INTV 5000
-#define MAINT_INTV 15000
-#define JOY_INTV 7000
-#define ENERGY_INTV 10000
+#include <Arduino.h>
 
 struct Mood {
-    int joy;
-    int satiation;
-    int energy;
-    int maintenance;
-    int mood;
+    uint8_t joy;
+    uint8_t satiation;
+    uint8_t energy;
+    uint8_t maintenance;
+    uint8_t mood;
 };
 
 extern Mood currentMood;
 
 void initMood();
-void updateMood(State s = IDLE);
 
 #endif

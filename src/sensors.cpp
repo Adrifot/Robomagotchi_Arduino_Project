@@ -1,9 +1,9 @@
 #include "sensors.h"
 #include <Arduino.h>
 
-const int lightThreshold = 20;
+const uint8_t lightThreshold = 20;
 
-float duration, distance;
+int duration, distance;
 
 void initSensors() {
     pinMode(PHOTO_PIN, INPUT);
@@ -30,6 +30,6 @@ int getDistance() {
     duration = pulseIn(ECHO_PIN, HIGH, 30000);
     if(duration > 0) distance = (duration * 0.0343) / 2;
     else distance = -1;
-
+    
     return distance;
 }

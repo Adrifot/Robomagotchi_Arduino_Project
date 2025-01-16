@@ -1,4 +1,5 @@
-#pragma once
+#ifndef DISPLAY_H
+#define DISPLAY_H
 
 #include <Adafruit_SSD1306.h>
 #include <Adafruit_GFX.h>
@@ -9,23 +10,19 @@
 #define OLED_WIDTH 128
 #define OLED_HEIGHT 64
 #define TOP_OFFSET 15
-#define FACE_UPDATE_INTERVAL 10000
-#define SLEEP_ANIMATION_INTV 100
+#define FACE_UPDATE_INTERVAL 5000
 
 #define WHITE SSD1306_WHITE
 #define BLACK SSD1306_BLACK
 
 void initOLED();
-void updateFace(int mood);
+void updateFace(uint8_t mood, State st = IDLE);
 
-void displayHappy();
-void displayNormal();
-void displaySad();
-void displayBored();
-void displaySleeping(); 
+void displayEmotion(uint8_t emotion);
 
-void showHappiness();
+void showMoodValue();
 
-// void displayMainMenu();
-// void processMenuInput();
+void displayMainMenu();
+void processMenuInput();
 
+#endif
